@@ -1,0 +1,32 @@
+{
+    "elementos": [
+        {
+            "tipo": "botón",
+            "texto": "Iniciar",
+            "posicion": {
+                "x": 50,
+                "y": 50
+            },
+            "tamano": {
+                "ancho": 100,
+                "alto": 50
+            },
+            "color": "blue"
+        },
+        {
+            "tipo": "texto",
+            "contenido": "Instrucciones",
+            "posicion": {
+                "x": 50,
+                "y": 120
+            },
+            "tamano": {
+                "ancho": 200,
+                "alto": 30
+            },
+            "color": "black",
+            "fuente": "Arial",
+            "tamaño": 14
+        }
+    ]
+}

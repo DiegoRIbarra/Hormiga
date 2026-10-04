@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: hormiga
+Version: 0.1.0
+Summary: Hormiga using crewAI
+Author-email: Your Name <you@example.com>
+Requires-Python: <3.14,>=3.10
+Requires-Dist: crewai[tools]<2.0.0,>=1.15.23

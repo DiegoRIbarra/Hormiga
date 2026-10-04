@@ -1,0 +1,24 @@
+backend_task:
+  description: >
+    "Desarrolla la lógica de BFS. Asegúrate de que la función de búsqueda devuelva una lista de coordenadas (el camino) y no solo el destino. 
+    Utiliza estructuras de datos eficientes de Python 3.11+ para garantizar que la búsqueda sea instantánea incluso en laberintos grandes."
+  expected_output: >
+    Código Python completo de la lógica de backend, siguiendo las reglas de PySide6 (Signals/Slots).
+  agent: programador
+
+interface_task:
+  description: >
+    "Crea la interfaz en PySide6. Es fundamental que la visualización del movimiento de la hormiga no bloquee el hilo principal de la aplicación (usa QTimer). 
+    Implementa la lógica de eventos de ratón para permitir que el usuario arrastre los elementos (Hormiga y Comida) por la cuadrícula del laberinto, 
+    actualizando la posición en el backend automáticamente."
+  expected_output: >
+    Código Python completo de la interfaz, con métodos _build_ui() y estilos QSS.
+  agent: interfaz
+
+review_task:
+  description: >
+    Audita el código producido por el programador y la interfaz. 
+    Compara que el código final sea fiel a lo que indican los archivos originales en 'datos base'.
+  expected_output: >
+    VEREDICTO: APROBADO o RECHAZADO. Lista de problemas y correcciones concretas.
+  agent: supervisor

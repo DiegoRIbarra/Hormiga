@@ -1,0 +1,23 @@
+[project]
+name = "hormiga"
+version = "0.1.0"
+description = "Hormiga using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=1.15.23,<2.0.0"
+]
+
+[project.scripts]
+hormiga = "hormiga.main:run"
+run_crew = "hormiga.main:run"
+train = "hormiga.main:train"
+replay = "hormiga.main:replay"
+test = "hormiga.main:test"
+run_with_trigger = "hormiga.main:run_with_trigger"
+
+[tool.crewai]
+source = "crewai_core"
+build-backend = "hatchling.build"
+type = "crew"
+project_id = "fb8e297b-52db-47f5-821b-c3549dae3d79"

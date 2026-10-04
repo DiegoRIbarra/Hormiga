@@ -1,0 +1,7 @@
+[console_scripts]
+hormiga = hormiga.main:run
+replay = hormiga.main:replay
+run_crew = hormiga.main:run
+run_with_trigger = hormiga.main:run_with_trigger
+test = hormiga.main:test
+train = hormiga.main:train
