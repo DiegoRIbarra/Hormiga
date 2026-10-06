@@ -1,24 +1,43 @@
 backend_task:
   description: >
-    "Desarrolla la lógica de BFS. Asegúrate de que la función de búsqueda devuelva una lista de coordenadas (el camino) y no solo el destino. 
-    Utiliza estructuras de datos eficientes de Python 3.11+ para garantizar que la búsqueda sea instantánea incluso en laberintos grandes."
+    Escribe la lógica completa de búsqueda en el archivo 'bfs_logic.py'. 
+    REQUERIMIENTOS:
+    1. Implementar un algoritmo BFS que reciba un grid, un punto de inicio y un punto final.
+    2. DEBE devolver una lista de tuplas con las coordenadas del camino más corto.
+    3. Usar 'collections.deque' para optimizar la cola de búsqueda.
+    4. PROHIBIDO usar 'pass' o dejar funciones vacías.
   expected_output: >
-    Código Python completo de la lógica de backend, siguiendo las reglas de PySide6 (Signals/Slots).
+    Código Python completo y funcional para el archivo 'bfs_logic.py' entregado en un bloque Markdown.
   agent: programador
 
 interface_task:
   description: >
-    "Crea la interfaz en PySide6. Es fundamental que la visualización del movimiento de la hormiga no bloquee el hilo principal de la aplicación (usa QTimer). 
-    Implementa la lógica de eventos de ratón para permitir que el usuario arrastre los elementos (Hormiga y Comida) por la cuadrícula del laberinto, 
-    actualizando la posición en el backend automáticamente."
+    Escribe el código completo de 'main_gui.py' usando EXCLUSIVAMENTE PySide6.
+    REQUERIMIENTOS TÉCNICOS:
+    1. TEMA: Color de fondo principal #0b0d17 (estilo Figma).
+    2. VIDEO: Configurar QMediaPlayer y QVideoWidget para reproducir en bucle infinito el archivo ubicado en: 
+       "datos base/Subway Surfers (2026) - Gameplay [4K 16x9] No Copyright.mp4".
+    3. TABLERO: Grid de 10x8. La hormiga 🐜 debe ser movible mediante Drag & Drop (QDrag y QMimeData).
+    4. DINÁMICA: La comida 🍎 debe aparecer en una posición aleatoria al iniciar o resetear.
+    5. ANIMACIÓN: El camino devuelto por 'bfs_logic.py' debe animarse celda por celda usando un QTimer.
+    6. BOTÓN FLOTANTE: Un botón "✖" en la esquina superior derecha que al hacer clic:
+       - Oculte el QVideoWidget.
+       - Cambie el texto del botón a "▶".
+       - Reduzca el ancho de la ventana de 950px a 500px.
+    7. PROHIBIDO usar PyQt5 o PyQt6. Usar solo PySide6.
+    8. PROHIBIDO usar 'pass'. El código debe estar conectado funcionalmente a 'bfs_logic.py'.
   expected_output: >
-    Código Python completo de la interfaz, con métodos _build_ui() y estilos QSS.
+    Código Python completo y funcional para el archivo 'main_gui.py' entregado en un bloque Markdown.
   agent: interfaz
 
 review_task:
   description: >
-    Audita el código producido por el programador y la interfaz. 
-    Compara que el código final sea fiel a lo que indican los archivos originales en 'datos base'.
+    Audita el código final. Verifica estrictamente:
+    1. ¿El video usa la ruta exacta "datos base/Subway Surfers (2026) - Gameplay [4K 16x9] No Copyright.mp4"?
+    2. ¿Se usa PySide6 y NO PyQt6/PyQt5?
+    3. ¿El botón flotante cambia la ventana a 500px y el ícono a "▶"?
+    4. ¿La animación del camino es real y no un 'pass'?
+    Si falla CUALQUIERA de estos puntos, el veredicto es RECHAZADO y debes proveer el código corregido.
   expected_output: >
-    VEREDICTO: APROBADO o RECHAZADO. Lista de problemas y correcciones concretas.
+    Reporte de auditoría con VEREDICTO y correcciones exactas en Markdown.
   agent: supervisor

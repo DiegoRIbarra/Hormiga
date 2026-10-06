@@ -11,15 +11,7 @@ from hormiga.crew import Hormiga
 # 1. Intenta leer el TOPIC desde el archivo .env
 # 2. Si no existe en .env, usa el valor por defecto "AI LLMs"
 load_dotenv() 
-TOPIC = """Crear un proyecto en Python y PySide6 dentro de la carpeta 'proyecto' para resolver el problema de la hormiga usando el algoritmo BFS. 
-Requerimientos técnicos estrictos:
-1. Lógica de BFS: Implementar el camino más corto usando 'collections.deque' para la cola de exploración, asegurando que la hormiga evite obstáculos y encuentre la comida.
-2. Interfaz Gráfica: Usar PySide6. El movimiento de la hormiga debe ser animado y fluido mediante el uso de 'QTimer', evitando que la interfaz se congele durante la búsqueda.
-3. Interactividad: 
-   - El usuario debe poder configurar el tamaño del laberinto y colocar obstáculos.
-   - Implementar funcionalidad de 'Drag and Drop' real (usando mousePressEvent, mouseMoveEvent y mouseReleaseEvent) para mover a la hormiga y la comida en tiempo real.
-4. Control: Incluir un botón de 'Reiniciar' que limpie el camino y permita nuevas configuraciones.
-5. Salida: El código debe estar modularizado (lógica de BFS separada de la interfaz gráfica)."""
+TOPIC = """Crear un proyecto en Python y PySide6 dentro de la carpeta 'proyecto' para resolver el problema de la hormiga usando el algoritmo BFS. """
 # ---------------------------------
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")

@@ -29,6 +29,37 @@ class KnowledgeBaseTool(BaseTool):
         except Exception as e:
             return f"Error al leer el archivo {filename}: {str(e)}"
 
+# --- HERRAMIENTA DE LECTURA DEL PROYECTO ---
+class ProjectReadInput(BaseModel):
+    """Input para leer archivos de la carpeta del proyecto."""
+    filename: str = Field(..., description="Nombre del archivo a leer en la carpeta 'proyecto' (ej: 'bfs_logic.py')")
+
+class ProjectReadTool(BaseTool):
+    name: str = "ProjectReadTool"
+    description: str = "Útil para leer el contenido de los archivos generados en la carpeta 'proyecto'. Usa esta herramienta para revisar el código producido por otros agentes."
+    args_schema: Type[BaseModel] = ProjectReadInput
+
+    def _run(self, filename: str) -> str:
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../proyecto"))
+        file_path = os.path.join(base_path, filename)
+        try:
+            # Si no se especifica archivo, listar los archivos disponibles
+            if filename.lower() in ("", ".", "ls", "list", "dir"):
+                if os.path.exists(base_path):
+                    files = os.listdir(base_path)
+                    return f"Archivos en 'proyecto': {', '.join(files) if files else '(vacío)'}"
+                return "La carpeta 'proyecto' no existe aún."
+            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                return f.read()
+        except FileNotFoundError:
+            # Listar archivos disponibles como ayuda
+            if os.path.exists(base_path):
+                files = os.listdir(base_path)
+                return f"Error: '{filename}' no encontrado. Archivos disponibles: {', '.join(files) if files else '(ninguno)'}"
+            return f"Error: La carpeta 'proyecto' no existe aún."
+        except Exception as e:
+            return f"Error al leer el archivo {filename}: {str(e)}"
+
 # --- HERRAMIENTA DE ESCRITURA ---
 class ProjectWriteTool(BaseTool):
     name: str = "ProjectWriteTool"
